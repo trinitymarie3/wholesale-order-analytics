@@ -1,0 +1,8 @@
+check,rows,pct_of_total
+Total rows,1067371,100.0
+Exact duplicate rows,34335,3.22
+Missing customer ID,243007,22.77
+Missing description,4382,0.41
+Cancellation lines (invoice starts with C),19494,1.83
+Zero or negative quantity,22950,2.15
+Zero or negative price,6207,0.58
