@@ -1,0 +1,7 @@
+outcome,count,pct_of_total
+sales,1003355,94.0
+rejected: duplicate,34335,3.22
+cancellation,17915,1.68
+rejected: non product code,5804,0.54
+rejected: stock adjustment,3390,0.32
+rejected: bad price,2572,0.24
