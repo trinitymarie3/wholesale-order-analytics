@@ -14,7 +14,7 @@ An end-to-end analysis of 1,067,371 order lines from a UK online retailer whose 
 | Sales analysis                            | SQL                        | Done        |
 | Dashboard                                 | Power BI, Power Query, DAX | In progress |
 
-## Data quality findings so far
+## Data quality findings
 
 The raw data covers December 2009 to December 2011, with 5,942 customers in 43 countries. 290,777 rows (27.24%) had at least one issue.
 
