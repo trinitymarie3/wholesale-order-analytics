@@ -72,7 +72,7 @@ The clean sales and cancellation lines are loaded into two PostgreSQL tables wit
 | `sales`         | 1,003,355 |
 | `cancellations` | 17,915    |
 
-## SQL analysis so far
+## SQL analysis
 
 **Monthly revenue** (`sql/03_monthly_revenue.sql`)
 
