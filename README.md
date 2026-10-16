@@ -2,7 +2,7 @@
 
 An end-to-end analysis of 1,067,371 order lines from a UK online retailer whose customers are largely wholesalers. The project profiles and cleans the raw data, loads it into a SQL database, and reports on sales and customers in Power BI.
 
-**Status: in progress.** The data profiling and cleaning is complete. The data is loaded into PostgreSQL, and the SQL analysis is underway. The dashboard is next.
+**Status: in progress.** Data profiling, cleaning and the SQL analysis are complete. The Power BI dashboard is next. The Power BI dashboard is next.
 
 ## Progress
 
@@ -11,8 +11,8 @@ An end-to-end analysis of 1,067,371 order lines from a UK online retailer whose 
 | Data profiling and quality report         | Python (pandas)            | Done        |
 | Data cleaning with a log of rejected rows | Python (pandas)            | Done        |
 | Database design, load and verification    | PostgreSQL, SQL            | Done        |
-| Sales analysis                            | SQL                        | In progress |
-| Dashboard                                 | Power BI, Power Query, DAX | Planned     |
+| Sales analysis                            | SQL                        | Done        |
+| Dashboard                                 | Power BI, Power Query, DAX | In progress |
 
 ## Data quality findings so far
 
@@ -86,6 +86,23 @@ The clean sales and cancellation lines are loaded into two PostgreSQL tables wit
 - Because sales and cancellations are stored in separate tables, product rankings are recalculated as net sales, combining both tables so that cancellations are subtracted. Both products drop out of the net top 10.
 - On a net basis, the top product by revenue is the Regency cakestand.
 
+**Revenue by country** (`sql/05_revenue_by_country.sql`)
+
+- On a net basis, the United Kingdom accounts for 85.4% of revenue (£16.2 million). No other country reaches 4%: the next largest are Ireland (3.2%), the Netherlands (2.9%), Germany (2.0%) and France (1.6%).
+- The business is therefore highly concentrated in its home market, which is a strength but also a risk. The established international customers are the clearest area for growth.
+
+**Repeat customers** (`sql/06_repeat_customers.sql`)
+
+This analysis covers the 5,852 customers with a customer ID in the sales data, using gross sales.
+
+| Customer type      | Customers | % of customers | Revenue     | % of revenue |
+| ------------------ | --------- | -------------- | ----------- | ------------ |
+| One-time (1 order) | 1,618     | 27.65%         | £556,000    | about 3%     |
+| Repeat (2+ orders) | 4,234     | 72.35%         | £16,512,568 | about 97%    |
+
+- 72% of customers placed more than one order, and they generated about 97% of revenue from identified customers. A repeat customer spent about £3,900 on average, against about £344 for a one-time customer.
+- Customers who first ordered near the end of the data had little time to return, so the one-time share is likely slightly overstated.
+
 ## Repository layout
 
 - `notebooks/` holds the analysis notebooks, starting with `01_explore.ipynb`
@@ -95,6 +112,8 @@ The clean sales and cancellation lines are loaded into two PostgreSQL tables wit
 - `sql/02_verify_load.sql` checks the loaded row counts
 - `sql/03_monthly_revenue.sql` calculates revenue and orders by month
 - `sql/04_top_products.sql` ranks products by revenue, investigates outliers, and recalculates the ranking on net sales
+- `sql/05_revenue_by_country.sql` calculates net revenue and its share by country
+- `sql/06_repeat_customers.sql` compares one-time and repeat customers
 
 ## How to run it
 
