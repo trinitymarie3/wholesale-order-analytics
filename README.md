@@ -130,6 +130,18 @@ pip install pandas openpyxl jupyter sqlalchemy psycopg2-binary matplotlib
 
 4. In PostgreSQL, create a database, run `sql/01_create_tables.sql`, and import the clean sales and cancellations CSV files into the two tables. Then run the remaining SQL files in order.
 
+## How this project was built
+
+I used Claude (Anthropic's AI assistant) as a tutor and reviewer throughout this project.
+
+- **Planning:** Claude helped scope the project, choose the dataset and tools based on current data analyst internship postings, and plan the stages.
+- **Learning:** for each new concept (pandas filtering, cleaning rules, SQL grouping, subqueries, window functions), Claude explained it with a worked example on a separate problem. I then wrote the code for this project myself.
+- **Code:** the initial setup and exploration notebook (`01_explore.ipynb`) were written with substantial help from Claude. The cleaning notebook (`02_clean.ipynb`) and all SQL queries were written by me, with Claude reviewing them and pointing out errors to fix.
+- **Checking results:** Claude suggested ways to validate the outputs, such as reconciling row counts and comparing totals against independently calculated figures. I ran these checks and investigated anything that didn't match, including the single cancelled orders that distorted the top-products ranking.
+- **Documentation:** Claude drafted this README from my results, which I reviewed and edited.
+
+All numbers in this repository come from code I ran on the dataset.
+
 ## Data source
 
 Chen, D. (2012). Online Retail II [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5CG6D. Licensed under CC BY 4.0.
